@@ -1,21 +1,23 @@
-import { useCurrentSecond } from "my-library";
-import { AbsoluteFill } from "remotion";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import { cube } from "my-library";
+import { Letter } from "./Letter";
+
+export const BLUE = "#1B9CFC";
+export const PINK = "#FC427B";
 
 export default function Example() {
-  const second = useCurrentSecond();
-
   return (
-    <AbsoluteFill
-      style={{
-        backgroundColor: "white",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <h1 style={{ fontSize: 200, fontFamily: "sans-serif", color: "black" }}>
-        Second {second.toFixed(2)}
-      </h1>
-    </AbsoluteFill>
+    <TransitionSeries>
+      <TransitionSeries.Sequence durationInFrames={40}>
+        <Letter backgroundColor={BLUE} letter="A" color="white" />
+      </TransitionSeries.Sequence>
+      <TransitionSeries.Transition
+        presentation={cube({ direction: "from-left", perspective: 1000 })}
+        timing={linearTiming({ durationInFrames: 30 })}
+      />
+      <TransitionSeries.Sequence durationInFrames={60}>
+        <Letter color="white" letter="B" backgroundColor={PINK} />
+      </TransitionSeries.Sequence>
+    </TransitionSeries>
   );
 }
