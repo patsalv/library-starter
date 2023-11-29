@@ -49,7 +49,7 @@ const Cube: React.FC<
         ? "top"
         : passedProps.direction === "from-bottom"
         ? "bottom"
-        : "right";
+        : "left";
     const transformOriginExiting =
       passedProps.direction === "from-left"
         ? "left"
@@ -57,7 +57,7 @@ const Cube: React.FC<
         ? "bottom "
         : passedProps.direction === "from-bottom"
         ? "top"
-        : "left";
+        : "right";
 
     const rotation =
       presentationDirection === "entering"
