@@ -22,40 +22,40 @@ const Cube: React.FC<
   const style: React.CSSProperties = useMemo(() => {
     const startRotationEntering =
       passedProps.direction === "from-right" ||
-      passedProps.direction === "from-bottom"
+      passedProps.direction === "from-top"
         ? 90
         : -90;
     const endRotationEntering =
       passedProps.direction === "from-right" ||
-      passedProps.direction === "from-bottom"
+      passedProps.direction === "from-top"
         ? -90
         : 90;
 
     const startPositionEntering =
       passedProps.direction === "from-right" ||
-      passedProps.direction === "from-top"
+      passedProps.direction === "from-bottom"
         ? 100
         : -100;
     const startPositionExiting =
       passedProps.direction === "from-right" ||
-      passedProps.direction === "from-top"
+      passedProps.direction === "from-bottom"
         ? -100
         : 100;
 
     const transformOriginEntering =
       passedProps.direction === "from-left"
         ? "right"
-        : passedProps.direction === "from-top"
-        ? "top"
         : passedProps.direction === "from-bottom"
+        ? "top"
+        : passedProps.direction === "from-top"
         ? "bottom"
         : "left";
     const transformOriginExiting =
       passedProps.direction === "from-left"
         ? "left"
-        : passedProps.direction === "from-top"
-        ? "bottom "
         : passedProps.direction === "from-bottom"
+        ? "bottom "
+        : passedProps.direction === "from-top"
         ? "top"
         : "right";
 
