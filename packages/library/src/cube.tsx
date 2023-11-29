@@ -8,7 +8,7 @@ import { AbsoluteFill, interpolate } from "remotion";
 
 type CubePresentationProps = {
   direction: "from-left" | "from-right" | "from-top" | "from-bottom";
-  perspective: number;
+  perspective?: number;
 };
 
 const Cube: React.FC<
@@ -17,7 +17,7 @@ const Cube: React.FC<
   children,
   presentationDirection,
   presentationProgress,
-  passedProps,
+  passedProps: { perspective = 1000, ...passedProps },
 }) => {
   const style: React.CSSProperties = useMemo(() => {
     const startRotationEntering =
@@ -99,7 +99,7 @@ const Cube: React.FC<
   return (
     <AbsoluteFill
       style={{
-        perspective: passedProps.perspective,
+        perspective,
         transformStyle: "preserve-3d",
       }}
     >

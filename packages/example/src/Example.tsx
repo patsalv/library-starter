@@ -12,7 +12,7 @@ export default function Example() {
         <Letter backgroundColor={BLUE} letter="A" color="white" />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
-        presentation={cube({ direction: "from-left", perspective: 1000 })}
+        presentation={cube({ direction: "from-left" })}
         timing={linearTiming({ durationInFrames: 30 })}
       />
       <TransitionSeries.Sequence durationInFrames={60}>
